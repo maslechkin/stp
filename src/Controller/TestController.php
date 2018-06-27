@@ -7,10 +7,11 @@
  */
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TestController {
+class TestController extends Controller {
     public function number()
     {
         $number = rand(1, 1000);
@@ -19,12 +20,22 @@ class TestController {
     }
 
     /**
-     * @Route("/test/randnumber")
-     * 
+     * @Route("/test/numberannotation")
+     *
      * @return Response
      */
-    public function randnumber()
+    public function numberannotation()
     {
-        return new Response('<html><body>' . rand(1, 100) . '</body></html>');
+        return new Response('<html><body>s' . rand(1, 100) . '</body></html>');
+    }
+
+    /**s
+     * @return Response
+     */
+    public function numbertwig()
+    {
+        return $this->render('test/number.html.twig', [
+            'number' => rand(1, 1000)
+        ]);
     }
 }

@@ -5,3 +5,7 @@
 app_test_number:
     path: /test/number
     controller: App\Controller\TestController::number
+
+app_test_numbertwig:
+    path: /test/numbertwig
+    controller: App\Controller\TestController::numbertwig
